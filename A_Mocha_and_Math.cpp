@@ -20,14 +20,16 @@ for(int i=0;i<n;i++)
         max1=arr[i];
     }
 }
-for(int i=0;i<n-1;i++){
-     min1=min(min1,(arr[i]&max1));
+sort(arr,arr+n);
+min1=arr[0];
+for(int i=1;i<=n-1;i++){
+     min1=min(min1,(min1&arr[i]));
 }
 if(n!=1){
 cout<<min1<<endl;
 }
 else{
-    cout<<0<<endl;
+    cout<<arr[0]<<endl;
 }
 }
 return 0;
