@@ -1,3 +1,4 @@
+#define ll long long int 
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -9,69 +10,76 @@ int main() {
 	{
 	    int n;
         cin>>n; 
-        pair<long int,long int> arr[n];
-        int zero=0,one=0;
-        for(int i=0;i<n;i++)
-        {
-            cin>>arr[i].first;
-            if(arr[i].first==0)
-            {
-                zero++;
-            }
-            else{
-                one++;
-            }
+        int arr[n];
+        vector<long long int> one;
+        vector<long long int> zero;
+        //int zero=0,one=0;
+        for(int i=0;i<n;i++){
+            cin>>arr[i];
         }
         for(int i=0;i<n;i++)
         {
-            cin>>arr[i].second;
+            long long int a;
+            cin>>a;
+            if(arr[i]==1)
+            {
+                one.push_back(a);
+            }
+            else{
+                zero.push_back(a);
+            }
         }
-        sort(arr,arr+n);
-       /* for(int i=0;i<n;i++)
-        {
-            cout<<arr[i].first<<" "<<arr[i].second<<endl;;
-        }*/
-        long long int sum=0;
-        int count=0;
-        for(int i=n-1;i>=0+count;i--)
-        {
-            if(one!=zero)
-            {
-            if(one!=0&&zero!=0)
-            {
-            sum=sum+(2*arr[i].second);
-            one--;
-            //cout<<sum<<endl;
-            sum=sum+(2*arr[zero-1].second);
-            zero--;
-            //cout<<sum<<endl;
-            count++;
+        sort(zero.begin(),zero.end());
+        sort(one.begin(),one.end());
+        ll x=min(zero.size(),one.size());
+        ll y=max(zero.size(),one.size());
+        ll sum=0,a=zero.size(),b=one.size();
+        // if(zero.size()>one.size()){
+        //     sum=zero[0];
+        //     a++;
+        // }
+        // else if(zero.size()<one.size()){
+        //     sum=one[0];
+        //     b++;
+        // }
+        // else{
+        //     if(one[0]>zero[0]){
+        //         sum=zero[0];
+        //         a++;
+        //     }
+        //     else{
+        //         sum=one[0];
+        //         b++;
+        //     }
+        // }
+        
+        for(int i=0;i<y;i++){
+            if(i<x){
+            sum+=(2*zero[zero.size()-1-i]);
+            sum+=(2*one[one.size()-1-i]);
             }
-            else{
-                sum=sum+arr[i].second;
-               // cout<<sum<<endl;
+            // else if(zero.size()>one.size()&&i==x){
+            //     sum+=(2*(zero[zero.size()-1-i]));
+            // }
+            // else if(zero.size()<one.size()&&i==x){
+            //     sum+=(2*(one[one.size()-1-i]));
+            // } 8 18 12 14 16 3
+            // else if(i==x&&a>b&&a!=0&&b!=0){
+            //     sum+=(2*zero[zero.size()-1-i]);
+            // }
+            // else if(i==x&&a<b&&a!=0&&b!=0){
+            //     sum+=(2*one[one.size()-1-i]);
+            // }
+            else if(a>b){
+                sum+=(zero[zero.size()-1-i]);
             }
+            else {
+                sum+=(one[one.size()-1-i]);
             }
-            else{
-                if(one!=1&&zero!=1)
-            {
-            sum=sum+(2*arr[i].second);
-            one--;
-           // cout<<sum<<endl;
-            sum=sum+(2*arr[zero-1].second);
-            zero--;
-            //cout<<sum<<endl;
-            if(count==0||count==1)
-            {
-                count=0;
-            }
-            count++;
-            }
-            else{
-                sum=sum+arr[i].second;
-                //cout<<sum<<endl;
-            }
-            }
+            cout<<sum<<" ";
+        }
+        if(a==b){
+            sum-=min(zero[0],one[0]);
         }
         cout<<sum<<endl;
 	}
