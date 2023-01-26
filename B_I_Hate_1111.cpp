@@ -40,15 +40,16 @@ string n,x;
 cin>>n;
 x=n;
 int a=n.size();
-sort(n.begin(),n.end());
-if(x!=n){
-    cout<<"NO"<<endl;
-}
-else if(n[a-1]!=n[a-2]){
-    cout<<"NO"<<endl;
+// sort(n.begin(),n.end());
+// if(x!=n){
+//     cout<<"NO"<<endl;
+// }
+//else 
+if(n[a-1]<=n[a-2]){
+    cout<<"YES"<<endl;
 }
 else {
-    cout<<"YES"<<endl;
+    cout<<"NO"<<endl;
 }
 }
 return 0;

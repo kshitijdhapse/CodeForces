@@ -19,7 +19,8 @@ for(int i=0;i<n;i++)
     }
 }
 //cout<<sum<<endl;
-if(min==1)
+if(sum
+%2==1)
 {
     cout<<"Bob"<<endl;
 }

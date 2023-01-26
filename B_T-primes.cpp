@@ -1,27 +1,50 @@
 #define ll long long int 
 #include<bits/stdc++.h>
 using namespace std;
+bool isPrime(ll n)
+{
+    if (n <= 1)
+        return false;
+    if (n <= 3)
+        return true;
+ 
+    if (n % 2 == 0 || n % 3 == 0)
+        return false;
+ 
+    for (int i = 5; i * i <= n; i = i + 6)
+        if (n % i == 0 || n % (i + 2) == 0)
+            return false;
+ 
+    return true;
+}
 int main(){
-ll t;
-cin>>t;
-while(t--){
+ll n;
+cin>>n;
+for(int i=0;i<n;i++){
 ll a;
 cin>>a;
 ll count=0;
-for(int i=1;i<=a;i++){
-    if(a%i==0){
-        count++;
-    }
-    if(count==3&&i!=a){
-        count++;
-        break;
-    }
-}
-if(count==3){
-    cout<<"YES"<<endl;
+if(a%2==0&&a!=4||a==1){
+    cout<<"NO"<<endl;
 }
 else{
-    cout<<"NO"<<endl;
+    //long double x=pow(a,0.5);
+    ll o=sqrt(a);
+    //long double a=x-o;
+    ll res=o*o;
+    //cout<<res<<" "<<a<<endl;
+    if(res==a){
+            //cout<<count<<endl;
+            if(isPrime(o)){
+                cout<<"YES"<<endl;
+            }
+            else{
+                cout<<"NO"<<endl;
+            }
+    }
+    else{
+        cout<<"NO"<<endl;
+    }
 }
 }
 return 0;

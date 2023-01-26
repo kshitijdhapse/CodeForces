@@ -9,17 +9,20 @@ ll n;
 cin>>n;
 ll k;
 cin>>k;
-ll count=0;
 ll arr[n];
-cin>>arr[0];
-for(int i=1;i<n;i++){
+map <ll,ll> mp;
+for(int i=0;i<n;i++){
     cin>>arr[i];
-    if(arr[i]<arr[i-1]){
-        count++;
+    mp[arr[i]]=i;
+}
+sort(arr,arr+n);
+ll sum=0;
+for(int i=0;i<n-1;i++){
+    if(mp[arr[i+1]]-mp[arr[i]]!=1){
+        sum++;
     }
 }
-cout<<count<<" "<<k<<endl;
-if(count<=k){
+if(sum+1<=k){
     cout<<"Yes"<<endl;
 }
 else{
