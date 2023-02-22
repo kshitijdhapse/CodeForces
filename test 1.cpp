@@ -1,17 +1,31 @@
 #define ll long long int 
 #include<bits/stdc++.h>
 using namespace std;
+ll mod=35;
+int expo(ll x, ll y)
+{
+    ll res = 1;
+    x %= mod;
+    while (y)
+    {
+        if (y % 2)
+            res = (res * x % mod) % mod;
+        x = (x * x) % mod;
+        y /= 2;
+    }
+    return res;
+}
+int msub(ll a, ll b)
+{
+    a = a % mod;
+    b = b % mod;
+    return (((a - b) % mod) + mod) % mod;
+}
+
 int main(){
-ll t=999966000289,count=0;
-for(ll i=2;i<t;i++){
-//cout<<t%i<<endl;
-if(t%i==0){
-count++;
-}
-if(count==1){
-    cout<<i<<endl;
-    break;
-}
-}
+int n;
+cin>>n;
+//cout<<expo(3,31)<<endl;
+cout<<expo(4,99)<<endl;
 return 0;
 }

@@ -4,18 +4,29 @@ using namespace std;
 int main(){
 ll t;
 cin>>t;
+
 while(t--){
 ll a,b,c;
 cin>>a>>b>>c;
-ll k=abs(a-b);
-if((c>=2*k||k==1)){
-    cout<<-1<<endl;
+if(a<b){
+swap(a,b);
 }
-else if(c<=k){
-    cout<<c+k<<endl;
+ll k=abs(a-b);
+ll p=k+c,q=k-c;
+if(c>a&&q>b){
+    cout<<q<<endl;
+}
+else if(c<a&&q<b){
+    cout<<b<<endl;
+}
+else if(c<b&&p<a){
+    cout<<p<<endl;
+}
+else if(c>b&&p>a){
+    cout<<p<<endl;
 }
 else{
-    cout<<c-k<<endl;
+    cout<<-1<<endl;
 }
 }
 return 0;
