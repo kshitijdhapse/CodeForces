@@ -51,26 +51,24 @@ for(ll i=0;i<n;i++){
 }
 ll sum=0;
 ll x[3];
-ll count=0;
+ll count=1;
 for(ll i=0;i<n;i+=3){
     x[0]=arr[i];
     x[1]=arr[i+1];
     x[2]=arr[i+2];
+    sort(x,x+3);
+    
     if(x[0]==x[1]&&x[1]==x[2]){
-        count++;
+        count=mmul(3,count);
+    }else if(x[0]==x[1]){
+        count=mmul(2,count);
     }
-    //sort(x,x+3);
-    //cout<<x[0]<<" "<<x[1]<<" "<<x[2]<<" "<<endl;
-    // sum=madd(sum,x[1]);
-    // sum=madd(sum,x[2]);
 }
 ll p=factorial(n/3);
-for(ll i=0;i<(n/4)-1;i++){
-    p=mdiv(p,2);
-}
-for(ll i=0;i<count;i++){
-    p=mmul(p,6);
-}
+ll o=factorial(n/6);
+p=mdiv(p,o);
+p=mdiv(p,o);
+p=mmul(p,count);
 cout<<p<<endl;
 return 0;
 }

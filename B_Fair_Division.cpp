@@ -15,14 +15,18 @@ for(int i=0;i<n;i++){
         two++;
     }
     else{
-        two++;
+        one++;
     }
 }
-if(two%2!=0||one%2!=0){
+if(one%2!=0){
     cout<<"NO"<<endl;
 }
 else{
+    if(two%2!=0&&one<2){
+        cout<<"NO"<<endl;
+    }else{
     cout<<"YES"<<endl;
+    }
 }
 }
 return 0;

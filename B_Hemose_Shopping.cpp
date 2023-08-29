@@ -27,17 +27,20 @@ while(t--){
     }
     // cout<<n/2<<endl;
     if(k<n){
-    for(ll i=n-k-1;i<k;i++){
-        if(arr[i]!=x[i]){
+    for(ll i=n-k;i<=k-1;i++){
+        if(arr[i]!=x[i]&&n-k-1!=k){
             cout<<"NO"<<endl;
             stat=1;
             break;
         }
     }
+    }else{
+        cout<<"NO"<<endl;
+        stat=1;
+    }
     // cout<<count<<endl;
     if(stat==0){
         cout<<"YES"<<endl;
-    }
     }
 }
 return 0;

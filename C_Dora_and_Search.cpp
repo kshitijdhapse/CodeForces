@@ -14,7 +14,7 @@ for(int i=0;i<n;i++){
  p=min(p,arr[i]);
  o=max(o,arr[i]);
 }
-if()
+// if()
 for(int i=0;i<n-3;i++){
     if(o==arr[l]&&p==arr[r]){
         r++;
